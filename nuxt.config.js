@@ -9,9 +9,9 @@ export default {
       return files.map(file => file.path === '/index' ? '/' : file.path);
     }
   },
-  // router: {
-  //   base: '/frontend/'
-  // },
+  router: {
+    base: process.env.NODE_ENV === 'development' ? '/' : '/ipfs/hash/'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - Nosana',
@@ -79,7 +79,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxt/content'
+    '@nuxt/content',
+    '@agency-undone/nuxt-module-ipfs'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
